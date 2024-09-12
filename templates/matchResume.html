@@ -51,6 +51,16 @@
                 <br>
                 <button type="submit"class="btn btn-primary">Match Resume</button>
             </form>
+            {% if message %}
+            <div class="alert alert-info mt-4">
+                <p>{{message}}</p>
+                <ul>
+                    {% for index in range(top_resumes|length) %}
+                        <li> {{ top_resumes[index] }}  (Similarity Score:{{ similarity_scores[index] }}) </li>
+                    {% endfor %}
+                </ul>
+            </div>
+            {% endif %}
         </div>
     </div>
 </div>
